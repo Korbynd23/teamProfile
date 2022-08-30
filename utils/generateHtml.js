@@ -21,25 +21,10 @@ const generateHtml = (employeeBucket) => {
             <p class="card-text">${manager.email}</p>
             <p class="card-text">${manager.officeNum}</p>
         </div>
-    </div>    
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">${engineer.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${engineer.title}</h6>
-            <p class="card-text">${engineer.email}</p>
-            <p class="card-text">${engineer.gitHub}</p>
-        </div>
-    </div>    
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">${intern.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${intern.title}</h6>
-            <p class="card-text">${intern.email}</p>
-            <p class="card-text">${intern.school}</p>
-        </div>
-    </div>    
+   
             `)}
 
 
 module.exports = generateHtml;
 
+// filter out managers from employee bucket === manager    call managerhtml

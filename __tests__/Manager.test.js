@@ -1,16 +1,24 @@
-const Manager = require("./lib/Manager");
+const Manager = require("../lib/Manager");
 
 
-describe('Manager', () => {
+describe('Get managers office number', () => {
     it("should display data from entries", () => {
-        // Arrange
-      const text = 'Korbyn';
+        
+      const text = 50;
 
-      // Act
-      const obj = new Manager(managerName);
+      const obj = new Manager("Korbyn", 1, "test@test.com", 50);
 
-      // Assert
-      expect(obj.text).toEqual(text);
+      expect(obj.getOfficeNum()).toEqual(text);
+    })
+       
+});
+
+describe('Get Role', () => {
+    it("should display the role of the employee", () => {
+        
+      const obj = new Manager("Korbyn", 1, "test@test.com", 50);
+
+      expect(obj.getRole()).toEqual("Manager");
     })
        
 });
