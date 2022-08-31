@@ -10,10 +10,6 @@ const Manager = require("./lib/Manager.js")
 const employeeBucket = []
 
 
-
-// maybe dont need bucket^^
-
-
 const init = () => {
     return inquirer.prompt([
         {
@@ -63,7 +59,6 @@ const anotherEmployee = () => {
 
         }
     ]).then((newCase) => {
-        // console.log(employeeBucket)
         switch (newCase.employeeAdd) {
             case "Engineer":
                 addEngineer()
@@ -73,7 +68,6 @@ const anotherEmployee = () => {
                 break;
             case "No, I'm finished":
                 pushNewEmployee()
-                console.log("Employee(s) created")
             }
         })
     }

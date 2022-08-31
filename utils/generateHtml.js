@@ -1,30 +1,105 @@
 
-const generateHtml = (employeeBucket) => {  
+const generateHtml = employeeBucket => {  
     console.log(employeeBucket)
 
+    const createManager = manager => {
     return (`
+    
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title bg-light">${manager.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${manager.title}</h6>
+            <p class="card-text">Employee ID: ${manager.id}</p>
+            <p class="card-text">Email: ${manager.email}</p>
+            <p class="card-text">Office Number: ${manager.officeNum}</p>
+        </div>
+    </div>
+    
+    `);};
+
+    const createEngineer = engineer => {
+        return (`
+        
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title bg-light">${engineer.name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${engineer.title}</h6>
+                <p class="card-text">Employee ID: ${engineer.id}</p>
+                <p class="card-text">Email: ${engineer.email}</p>
+                <a href="https://github.com/${engineer.gitHub}" class="card-link">GitHub Profile</a>
+            </div>
+        </div>
+        
+        `);};
+
+
+    const createIntern = intern => {
+    return (`
+    
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title bg-light">${intern.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${intern.title}</h6>
+            <p class="card-text">Employee ID: ${intern.id}</p>
+            <p class="card-text">Email: ${intern.email}</p>
+            <p class="card-text">School: ${intern.school}</p>
+        </div>
+    </div>
+    
+    `);};
+
+    const html = [];
+
+    html.push(employeeBucket
+        .filter(employee => employee.getRole() === "Manager")
+        .map(manager => createManager(manager))
+    );
+    html.push(employeeBucket
+        .filter(employee => employee.getRole() === "Engineer")
+        .map(engineer => createEngineer(engineer))
+        .join("")
+    );
+    html.push(employeeBucket
+        .filter(employee => employee.getRole() === "Intern")
+        .map(intern => createIntern(intern))
+        .join("")
+    );
+
+    return html.join("")
+
+}
+
+
+module.exports = employeeBucket => {
+   
+return `
+
     <!DOCTYPE html>
     <html lang="en">
+    
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
-        <title>Document</title>
+        <title>Team Generator</title>
     </head>
-    <body>
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">${employeeBucket.Manager.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${manager.title}</h6>
-            <p class="card-text">${manager.email}</p>
-            <p class="card-text">${manager.officeNum}</p>
+
+    <body class="bg-secondary">
+        <div class="jumbotron jumbotron-fluid bg-info">
+            <div class="container">
+                <h1 class="display-4 text-light">My Team</h1>
+            </div>
         </div>
-   
-            `)}
+        <div class="container">
+            <div class="row">
+                <div class="card-deck team-area col-12 d-flex justify-content-center bg-secondary">
+                    ${generateHtml(employeeBucket)}
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
 
-
-module.exports = generateHtml;
-
-// filter out managers from employee bucket === manager    call managerhtml
+`}
