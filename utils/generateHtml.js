@@ -5,12 +5,12 @@ const generateHtml = employeeBucket => {
     const createManager = manager => {
     return (`
     
-    <div class="card" style="width: 18rem;">
+    <div class="card cardEdit" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title bg-light">${manager.name}</h5>
             <h6 class="card-subtitle mb-2 text-muted">${manager.title}</h6>
             <p class="card-text">Employee ID: ${manager.id}</p>
-            <p class="card-text">Email: ${manager.email}</p>
+            <p class="card-text"><a href="mailto:${manager.email}">${manager.email}</a></p>
             <p class="card-text">Office Number: ${manager.officeNum}</p>
         </div>
     </div>
@@ -20,12 +20,12 @@ const generateHtml = employeeBucket => {
     const createEngineer = engineer => {
         return (`
         
-        <div class="card" style="width: 18rem;">
+        <div class="card cardEdit" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title bg-light">${engineer.name}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${engineer.title}</h6>
                 <p class="card-text">Employee ID: ${engineer.id}</p>
-                <p class="card-text">Email: ${engineer.email}</p>
+                <p class="card-text"><a href="mailto:${engineer.email}">${engineer.email}</a></p>
                 <a href="https://github.com/${engineer.gitHub}" class="card-link">GitHub Profile</a>
             </div>
         </div>
@@ -36,12 +36,12 @@ const generateHtml = employeeBucket => {
     const createIntern = intern => {
     return (`
     
-    <div class="card" style="width: 18rem;">
+    <div class="card cardEdit" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title bg-light">${intern.name}</h5>
+            <h5 class="card-title bg-light"><i class="bi bi-cup-hot-fill"></i>${intern.name}</h5>
             <h6 class="card-subtitle mb-2 text-muted">${intern.title}</h6>
             <p class="card-text">Employee ID: ${intern.id}</p>
-            <p class="card-text">Email: ${intern.email}</p>
+            <p class="card-text"><a href="mailto:${intern.email}">${intern.email}</a></p>
             <p class="card-text">School: ${intern.school}</p>
         </div>
     </div>
@@ -82,6 +82,7 @@ return `
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="./style.css">
 
         <title>Team Generator</title>
     </head>
@@ -92,7 +93,7 @@ return `
                 <h1 class="display-4 text-light">My Team</h1>
             </div>
         </div>
-        <div class="container">
+        <div class="container flexWrap">
             <div class="row">
                 <div class="card-deck team-area col-12 d-flex justify-content-center bg-secondary">
                     ${generateHtml(employeeBucket)}
