@@ -2,8 +2,9 @@
 
 ## Table of Contents
 
-- [Description](#Description)
+- [Description](#description)
 - [Refrences](#references)
+- [Videos](#videos)
 - [Licenses](#license)
 - [Author Info](#license)
 
@@ -12,7 +13,7 @@
 
 
 ### Application Photo
-![app screenshot](./assets/css/imgs/webApp.png)
+![app screenshot](./dist/imgs/ScreenshotTeamProfile.png)
 
 
 ## Description
@@ -29,7 +30,17 @@ Bootstrap - https://getbootstrap.com/docs/4.6/getting-started/introduction/
 
 Link to deployed application: https://korbynd23.github.io/teamProfile/
 
-Start the command link prompt by typing "node index.js" into the terminal. The prompt will then ask you to fill out manager information. After filling out the manager information you will be prompted if youd like to add an engineer, intern or if youre finished creating employees. When finished an html will be generated with each team member having a card with their information.
+Start the command link prompt by typing "node index.js" into the terminal. The prompt will then ask you to fill out manager information. After filling out the manager information you will be prompted if youd like to add an engineer, intern or if youre finished creating employees. When finished an html will be generated in the dist folder with each team member having a card with their information.
+
+## Videos:
+
+Testing - https://drive.google.com/file/d/1vxz2Ok_njNGrIYG2SkDEcBWC9FcwOBYP/view
+
+Invoking the App - https://drive.google.com/file/d/1QKvs8zdFJ9hTSsVV62767EFYAiET3YyX/view
+
+HTML Results - https://drive.google.com/file/d/1qaMK9x1PN42odjyoK0M4xtoD2TQC2Rni/view
+
+
 
 ## License
 Permission to use this application is granted under the MIT license. https://choosealicense.com/licenses/mit/
